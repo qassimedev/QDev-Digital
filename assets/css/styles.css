@@ -1125,6 +1125,11 @@ body.nav-open {
   .social-row a {
     padding: 12px 20px;
   }
+
+  .contact-card a {
+    display: block;
+    padding: 11px 8px;
+  }
 }
 
 @media (max-width: 900px) {
