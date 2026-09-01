@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#101a2e"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.85" cy="0.1" r="0.5">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.08" cy="0.95" r="0.5">
+      <stop offset="0" stop-color="#06b6d4" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <g opacity="0.5" stroke="#26324a" stroke-width="1.5">
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+  </g>
+
+  <g>
+    <rect x="120" y="120" width="120" height="120" rx="28" fill="url(#brand)"/>
+    <text x="180" y="212" font-family="Arial, Helvetica, sans-serif" font-size="80" font-weight="bold" fill="#ffffff" text-anchor="middle">Q</text>
+  </g>
+
+  <text x="280" y="195" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="bold" fill="#ffffff">QDev Digital</text>
+  <text x="280" y="248" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#93c5fd">Donnons vie à vos idées numériques.</text>
+
+  <text x="120" y="450" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#aab4cc">
+    Sites vitrines &#8226; CV &#8226; Flyers &#8226; Catalogues WhatsApp &#8226; Web sur mesure
+  </text>
+</svg>

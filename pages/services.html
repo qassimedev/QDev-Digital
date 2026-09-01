@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Services — QDev Digital</title>
+  <meta name="description" content="Découvrez les services de QDev Digital : CV professionnels, flyers et affiches, catalogues WhatsApp, sites vitrines, développement web personnalisé et solutions digitales sur mesure.">
+  <meta name="theme-color" content="#2563eb">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Services — QDev Digital">
+  <meta property="og:description" content="CV professionnels, flyers, catalogues WhatsApp, sites vitrines, développement web et solutions digitales sur mesure.">
+  <meta property="og:url" content="https://www.qdev-digital.com/pages/services.html">
+  <meta property="og:image" content="https://www.qdev-digital.com/assets/images/og-image.png">
+  <meta property="og:site_name" content="QDev Digital">
+  <link rel="canonical" href="https://www.qdev-digital.com/pages/services.html">
+
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
+
+  <header class="header">
+    <div class="container header__inner" id="nav-placeholder"></div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <h1>Nos services</h1>
+        <p>Des services pensés pour développer votre présence numérique : création, design et développement sur mesure.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Liste des services">
+      <div class="container">
+        <div id="services-detail-list"></div>
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section class="section section-alt" aria-labelledby="tarifs-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Tarifs</span>
+          <h2 id="tarifs-title">Des tarifs clairs et accessibles</h2>
+          <p>Prix de départ en FCFA, convertis automatiquement en euros. Chaque projet étant unique, un devis précis et sans engagement vous sera proposé.</p>
+        </div>
+
+        <div class="pricing-toggle" id="pricing-toggle" role="group" aria-label="Choix de la monnaie">
+          <button type="button" class="pricing-toggle__btn is-active" data-currency="FCFA">FCFA</button>
+          <button type="button" class="pricing-toggle__btn" data-currency="EUR">EUR (€)</button>
+        </div>
+
+        <div class="pricing-grid" id="pricing-grid"></div>
+
+        <div class="text-center mt-2 pricing-note">Taux de référence : 1 € = 656 FCFA.</div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Besoin spécifique">
+      <div class="container">
+        <div class="cta-dark">
+          <h2>Vous ne trouvez pas votre besoin ?</h2>
+          <p>Chaque idée est unique. Parlez-moi de votre projet : une solution sur mesure sera imaginée ensemble.</p>
+          <div class="cta-dark__actions">
+            <a class="btn btn-primary btn-lg" href="devis.html">Demander un devis</a>
+            <a class="btn btn-whatsapp btn-lg" href="#" data-whatsapp="true">
+              <span class="icon" data-icon="whatsapp"></span> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-placeholder"></footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

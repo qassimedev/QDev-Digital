@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Demander un devis — QDev Digital</title>
+  <meta name="description" content="Demandez un devis gratuit et sans engagement à QDev Digital : décrivez votre besoin et recevez une proposition claire.">
+  <meta name="theme-color" content="#2563eb">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Demander un devis — QDev Digital">
+  <meta property="og:description" content="Formulaire de devis simple et rapide pour votre projet digital.">
+  <meta property="og:url" content="https://www.qdev-digital.com/pages/devis.html">
+  <meta property="og:image" content="https://www.qdev-digital.com/assets/images/og-image.png">
+  <meta property="og:site_name" content="QDev Digital">
+  <link rel="canonical" href="https://www.qdev-digital.com/pages/devis.html">
+
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
+
+  <header class="header">
+    <div class="container header__inner" id="nav-placeholder"></div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <h1>Demander un devis</h1>
+        <p>Décrivez votre besoin : vous recevrez une proposition claire, avec le périmètre, les délais et le budget.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Formulaire de devis">
+      <div class="container">
+        <div class="form-card">
+          <form id="devis-form" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="f-nom">Nom <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="f-nom" name="nom" required autocomplete="family-name" placeholder="Votre nom" maxlength="60">
+                <span class="field-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="f-prenom">Prénom <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="f-prenom" name="prenom" required autocomplete="given-name" placeholder="Votre prénom" maxlength="60">
+                <span class="field-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="f-phone">Téléphone / WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="f-phone" name="telephone" required autocomplete="tel" placeholder="+00 000 000 000">
+                <span class="field-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="ex. nom@domaine.com">
+                <span class="field-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="f-service">Service souhaité <span class="req" aria-hidden="true">*</span></label>
+                <select id="f-service" name="service" required>
+                  <option value="" selected disabled>Choisissez un service…</option>
+                </select>
+                <span class="field-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="f-budget">Budget approximatif</label>
+                <select id="f-budget" name="budget">
+                  <option value="" selected disabled>Choisissez une fourchette…</option>
+                </select>
+                <span class="field-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="f-delai">Délai souhaité</label>
+                <select id="f-delai" name="delai">
+                  <option value="" selected disabled>Choisissez un délai…</option>
+                </select>
+                <span class="field-error" role="alert"></span>
+              </div>
+
+              <div class="form-field is-full">
+                <label for="f-desc">Décrivez votre projet <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="f-desc" name="description" required placeholder="Votre besoin, votre activité, vos objectifs…" minlength="10" maxlength="2000"></textarea>
+                <span class="field-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Envoyer la demande</button>
+            </div>
+
+            <p class="form-note">En envoyant ce formulaire, vous acceptez d'être recontacté(e) à propos de votre demande.</p>
+          </form>
+        </div>
+
+        <div class="cta-dark mt-2">
+          <h2>Vous préférez discuter directement ?</h2>
+          <p>Posez vos questions ou envoyez votre besoin sur WhatsApp : réponse rapide.</p>
+          <div class="cta-dark__actions">
+            <a class="btn btn-whatsapp btn-lg" href="#" data-whatsapp="true">
+              <span class="icon" data-icon="whatsapp"></span> Discuter sur WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-placeholder"></footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
