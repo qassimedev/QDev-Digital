@@ -153,26 +153,45 @@
     const nav = $(".nav");
     if (!toggle || !nav) return;
 
+    const closeMenu = () => {
+      nav.classList.remove("is-open");
+      toggle.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Ouvrir le menu");
+      document.body.classList.remove("nav-open");
+    };
+
+    const openMenu = () => {
+      nav.classList.add("is-open");
+      toggle.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Fermer le menu");
+      document.body.classList.add("nav-open");
+    };
+
     toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
-      toggle.classList.toggle("is-open", open);
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+      if (nav.classList.contains("is-open")) closeMenu();
+      else openMenu();
     });
 
     $$(".nav__link", nav).forEach((link) =>
-      link.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        toggle.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      })
+      link.addEventListener("click", closeMenu)
     );
 
+    document.addEventListener("click", (e) => {
+      if (!nav.classList.contains("is-open")) return;
+      if (e.target.closest(".nav") || e.target.closest(".nav-toggle")) return;
+      closeMenu();
+    });
+
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        nav.classList.remove("is-open");
-        toggle.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // Réinitialise l'état quand on repasse au layout desktop.
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900 && nav.classList.contains("is-open")) {
+        closeMenu();
       }
     });
   }

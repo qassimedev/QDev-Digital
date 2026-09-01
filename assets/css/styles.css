@@ -115,6 +115,7 @@ h4 {
   line-height: 1.25;
   font-weight: 700;
   color: var(--color-text);
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -414,6 +415,10 @@ main {
     transform: translateY(-120%);
     transition: transform 0.28s ease;
     visibility: hidden;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   .nav.is-open {
@@ -422,7 +427,7 @@ main {
   }
 
   .nav__link {
-    padding: 12px 14px;
+    padding: 14px 16px;
     font-size: 1.02rem;
   }
 
@@ -433,6 +438,12 @@ main {
   .nav__cta .btn {
     width: 100%;
   }
+}
+
+/* Scroll-lock : empêche le défilement du contenu derrière le menu ouvert.
+   La classe "nav-open" est posée sur <body> par main.js. */
+body.nav-open {
+  overflow: hidden;
 }
 
 /* ---------- Hero ---------- */
@@ -459,7 +470,7 @@ main {
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 48px;
-  padding: 88px 0 96px;
+  padding: 88px 20px 96px;
 }
 
 .hero__eyebrow {
@@ -568,6 +579,11 @@ main {
   color: #93c5fd;
 }
 
+.hero__card-item .icon-badge svg {
+  width: 20px;
+  height: 20px;
+}
+
 .hero__card-item strong {
   display: block;
   color: #fff;
@@ -582,12 +598,44 @@ main {
 @media (max-width: 900px) {
   .hero__inner {
     grid-template-columns: 1fr;
-    padding: 64px 0 72px;
+    padding: 64px 20px 72px;
     gap: 40px;
   }
 
   .hero__visual {
     order: 2;
+  }
+}
+
+/* Mobile : le badge eyebrow passe sur plusieurs lignes si besoin,
+   les stats se serrent et la carte hero respire moins large. */
+@media (max-width: 600px) {
+  .hero__eyebrow {
+    white-space: normal;
+    align-items: flex-start;
+  }
+
+  .hero__stats {
+    gap: 20px;
+  }
+
+  .hero__card {
+    padding: 22px;
+  }
+}
+
+/* Très petit mobile : paddings verticaux resserrés, carte hero compacte. */
+@media (max-width: 400px) {
+  .hero__inner {
+    padding: 48px 20px 56px;
+  }
+
+  .hero__card {
+    padding: 18px;
+  }
+
+  .hero__text {
+    font-size: 1.05rem;
   }
 }
 
@@ -654,6 +702,12 @@ main {
   transition: transform var(--transition);
 }
 
+.service-card__link .arrow {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 .service-card__link:hover .arrow {
   transform: translateX(4px);
 }
@@ -713,6 +767,11 @@ main {
   color: var(--color-success);
   flex-shrink: 0;
   margin-top: 4px;
+}
+
+.service-detail__adv .check svg {
+  width: 18px;
+  height: 18px;
 }
 
 .service-detail__actions {
@@ -913,7 +972,7 @@ main {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .adv-grid {
     grid-template-columns: 1fr;
   }
@@ -1044,6 +1103,22 @@ main {
   text-align: center;
   padding: 40px;
   color: var(--color-text-soft);
+}
+
+/* Mobile : zones tactiles des filtres portefolio, toggle monnaie et
+   liens réseaux sociaux agrandies pour un usage au doigt confortable. */
+@media (max-width: 600px) {
+  .filter-btn {
+    padding: 12px 20px;
+  }
+
+  .pricing-toggle__btn {
+    padding: 12px 24px;
+  }
+
+  .social-row a {
+    padding: 12px 20px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1274,6 +1349,14 @@ main {
   .form-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Confort au doigt : hauteur minimale des champs (le font-size reste
+     à 1rem pour éviter le zoom automatique d'iOS sur les inputs).
+     Le textarea garde sa hauteur dédiée (min-height: 110px). */
+  .form-field input,
+  .form-field select {
+    min-height: 48px;
+  }
 }
 
 /* ---------- Contact ---------- */
@@ -1465,7 +1548,7 @@ main {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .about-audience {
     grid-template-columns: 1fr;
   }
@@ -1503,26 +1586,100 @@ main {
   }
 }
 
-/* Petits écrans : boutons CTA/hero empilés en pleine largeur
-   pour ne jamais déborder du conteneur (boutons "nowrap" trop larges). */
-@media (max-width: 400px) {
+/* Mobile : groupes d'actions empilés en pleine largeur afin que les
+   boutons (qui restent "nowrap" sur desktop) ne débordent jamais du
+   conteneur et restent faciles à toucher au doigt. */
+@media (max-width: 600px) {
   .hero__actions,
-  .cta-dark__actions {
+  .cta-dark__actions,
+  .service-detail__actions {
     flex-direction: column;
     align-items: stretch;
   }
 
   .hero__actions .btn,
-  .cta-dark__actions .btn {
+  .cta-dark__actions .btn,
+  .service-detail__actions .btn {
     width: 100%;
     min-width: 0;
     white-space: normal;
   }
 
   .hero__actions .btn-lg,
-  .cta-dark__actions .btn-lg {
+  .cta-dark__actions .btn-lg,
+  .service-detail__actions .btn-lg {
+    padding: 15px 20px;
+  }
+}
+
+/* Très petits écrans : libellés des gros boutons un peu plus compacts. */
+@media (max-width: 400px) {
+  .hero__actions .btn-lg,
+  .cta-dark__actions .btn-lg,
+  .service-detail__actions .btn-lg {
     padding: 14px 18px;
     font-size: 1rem;
+  }
+}
+
+/* ---------- Très petit mobile (≤359px, ex. 320px) ----------
+   Espacements resserrés et cartes compactes : rien ne doit être coupé
+   ni déborder, tout en restant lisible. */
+@media (max-width: 359px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-head {
+    margin-bottom: 32px;
+  }
+
+  .page-hero {
+    padding: 48px 0 44px;
+  }
+
+  .hero__inner {
+    padding: 40px 16px 48px;
+  }
+
+  .hero__stats {
+    gap: 16px;
+    margin-top: 36px;
+    padding-top: 22px;
+  }
+
+  .form-card {
+    padding: 20px 16px;
+  }
+
+  .cta-dark {
+    padding: 34px 18px;
+  }
+
+  .service-card,
+  .pricing-card,
+  .process-card,
+  .adv-card,
+  .project-card__body {
+    padding: 20px;
+  }
+
+  .audience-card {
+    padding: 20px 14px;
+  }
+
+  .service-detail,
+  .about-card,
+  .contact-card {
+    padding: 24px 20px;
+  }
+
+  .footer__main {
+    padding: 40px 0 28px;
   }
 }
 
