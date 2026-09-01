@@ -7,9 +7,23 @@
 (function () {
   "use strict";
 
-  /* ---------- Chemins ---------- */
-  const IS_PAGES = window.location.pathname.includes("/pages/");
-  const ROOT = IS_PAGES ? "../" : "./";
+  /* ---------- Chemins ----------
+   * Le site a une structure fixe sur 2 niveaux :
+   *   /index.html          (racine  → ressources à "./")
+   *   /pages/*.html        (sous-dossier → ressources à "../")
+   * On détermine la racine relative en regardant le NOM DU DOSSIER
+   * PARENT DIRECT du fichier courant (et non le pathname complet).
+   * Cela fonctionne en http, sous-dossier (GitHub Pages) et file://,
+   * quel que soit l'emplacement absolu du projet. */
+  function getSiteRoot() {
+    var path = window.location.pathname || "";
+    var lastSlash = path.lastIndexOf("/");
+    var dir = lastSlash >= 0 ? path.slice(0, lastSlash) : "";
+    var nameStart = dir.lastIndexOf("/");
+    var parentDirName = nameStart >= 0 ? dir.slice(nameStart + 1) : dir;
+    return parentDirName === "pages" ? "../" : "./";
+  }
+  const ROOT = getSiteRoot();
 
   /* ---------- Petites icônes SVG (inline, sans dépendance) ---------- */
   const ICONS = {
