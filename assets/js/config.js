@@ -152,6 +152,15 @@ const QDEV_CONFIG = {
      le laisser absent) pour qu'il soit affiché comme une réalisation finalisée. */
   portfolio: [
     {
+      id: "parole-sociale",
+      title: "Parole Sociale",
+      category: "applications",
+      description: "Plateforme sociale web.",
+      technologies: [],
+      image: "assets/images/placeholder-portfolio.svg",
+      link: "",
+    },
+    {
       id: "produit",
       title: "PRODUIT",
       category: "personnels",
